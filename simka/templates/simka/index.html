@@ -1,0 +1,25 @@
+{% extends 'simka/base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<form action="{% url 'statement' %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <br><button type="submit" class="btn btn-primary" value=exampleFormControlTextarea1>Запустить</button>
+</form>
+
+ <br>
+        Данный сайт позволяет в автоматическом порядке сгенерировать заявление на получение корпоративной сим-карты.
+        Инструкция:
+
+
+<ol>
+ <li>Вставить ссылку на тикет для получения корпоративной связи. Обязательно поля должны быть заполнены</li>
+ <li>Нажать кнопку "Запустить"</li>
+ <li>При успешном исходе, появится кнопка "Скачать заявление"</li>
+</ol>
+
+{% endblock %}
